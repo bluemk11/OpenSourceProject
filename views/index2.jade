@@ -1,0 +1,81 @@
+extends layout
+
+block hero-unit
+  .jumbotron
+    .container
+      h1 OPEN-SOURCE PROJECT
+
+block content
+  .container
+   p(style='margin-top:-12px')
+       em.link
+
+   .map_wrap
+       #map(style='width:80%;height:600px;position:relative;overflow:hidden;float:left')
+
+       ul#category
+           li#BK9(data-order='0')
+               span.category_bg.bank
+               |             은행
+
+           li#MT1(data-order='1')
+               span.category_bg.mart
+               |             마트
+
+           li#PM9(data-order='2')
+               span.category_bg.pharmacy
+               |             약국
+
+           li#OL7(data-order='3')
+               span.category_bg.oil
+               |             주유소
+
+           li#CE7(data-order='4')
+               span.category_bg.cafe
+               |             카페
+
+           li#CS2(data-order='5')
+               span.category_bg.store
+               |             편의점
+
+        .option
+            div
+               form(style='float:left', onsubmit='searchWeather(); return false;')
+                         | 위도:
+                         input#lat(type='text', value=lat, size='18')
+                         | 경도:
+                         input#lng(type='text', value=lng, size='18')
+                         hr
+               form(onsubmit='searchPlaces2(); return false;')
+                         | 지역 :
+                         input(type='text', value=location, size='18')
+                         hr
+                         | 날씨 :
+                         input#sky(type='text', value=sky, size='18')
+                         hr
+                         | 최고 기온:
+                         input(type='text', value=tmax, size='18')
+                         hr
+                         | 최저 기온:
+                         input(type='text', value=tmin, size='18')
+                         hr
+                         | 현재 기온:
+                         input(type='text', value=tc, size='18')
+                         hr
+                         | 풍속:
+                         input(type='text', value=wspd, size='18')
+                         hr
+                         | 상대습도:
+                         input(type='text', value=humidity, size='18')
+                         hr
+                         | 예보 시간:
+                         input(type='text', value=time, size='18')
+                         hr
+
+
+       ul#placesList
+
+       #pagination
+
+
+   script(type='text/javascript', src='/js/map2.js')
